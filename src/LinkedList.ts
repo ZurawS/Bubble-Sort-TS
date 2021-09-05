@@ -1,6 +1,7 @@
 import { Node } from "./Node";
+import { Sorter } from "./Sorter";
 
-export class LinkedList {
+export class LinkedList extends Sorter {
   head: Node | null = null;
 
   add(data: number): void {
@@ -67,14 +68,16 @@ export class LinkedList {
   }
 
   print(): void {
+    let array = new Array();
     if (!this.head) {
       throw new Error("List is empty");
     }
 
     let node: Node | null = this.head;
     while (node) {
-      console.log(node.data);
+      array.push(node.data);
       node = node.next;
     }
+    console.log(array);
   }
 }
